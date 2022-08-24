@@ -12,14 +12,14 @@
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
-  <link href="assets/dashboard/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="assets/dashboard/css/nucleo-svg.css" rel="stylesheet" />
+  <link href={{ asset("assets/dashboard/css/nucleo-icons.css") }} rel="stylesheet" />
+  <link href={{ asset("assets/dashboard/css/nucleo-svg.css") }} rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
-  <link id="pagestyle" href="assets/dashboard/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+  <link id="pagestyle" href={{ asset("assets/dashboard/css/material-dashboard.css?v=3.0.4") }} rel="stylesheet" />
 </head>
   <body class="bg-gray-200">
         <div class="container position-sticky z-index-sticky top-0">
@@ -29,7 +29,7 @@
                     <nav
                         class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                         <div class="container-fluid ps-2 pe-0">
-                            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href={{ route("home") }}>
+                            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href={{ route("Home") }}>
                                CAMADO
                             </a>
                             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
@@ -46,7 +46,7 @@
                                 </ul>
                                 <ul class="navbar-nav d-lg-block d-none">
                                     <li class="nav-item">
-                                        <a href={{ route("home") }}
+                                        <a href={{ route("Home") }}
                                             class="btn btn-sm mb-0 me-1 bg-gradient-dark">Home</a>
                                     </li>
                                 </ul>
@@ -61,10 +61,10 @@
 
 
 <!--   Core JS Files   -->
-  <script src="assets/dashboard/js/core/popper.min.js"></script>
-  <script src="assets/dashboard/js/core/bootstrap.min.js"></script>
-  <script src="assets/dashboard/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="assets/dashboard/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src={{ asset("assets/dashboard/js/core/popper.min.js") }}></script>
+  <script src={{ asset("assets/dashboard/js/core/bootstrap.min.js") }}></script>
+  <script src={{ asset("assets/dashboard/js/plugins/perfect-scrollbar.min.js") }}></script>
+  <script src={{ asset("assets/dashboard/js/plugins/smooth-scrollbar.min.js") }}></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        "picture"
     ];
 
     /**
@@ -41,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function search($search)
+    {
+        return self::where("id", "=", $search)->orWhere("name", "LIKE", "%$search%")->paginate(8);
+    }
 }

@@ -22,6 +22,9 @@
     <!-- CSS Files -->
     <link id="pagestyle" href={{ asset('assets/dashboard/css/material-dashboard.css?v=3.0.0') }} rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    @yield('head')
+
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -31,8 +34,9 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href={{ route('dashboard') }}>
-                <img src={{ asset('assets/dashboard/img/logo-ct.png') }} class="navbar-brand-img h-100" alt="main_logo">
+            <a class="navbar-brand m-0" href={{ route('Dashboard') }}>
+                <img src="{{ asset('assets/dashboard/img/logo-ct.png') }}" class="navbar-brand-img h-100"
+                    alt="main_logo">
                 <span class="ms-1 font-weight-bold text-white">CAMADO</span>
             </a>
         </div>
@@ -41,7 +45,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class='{{ sprintf('nav-link text-white %s', Request::is('dashboard') ? 'active bg-gradient-primary' : '') }}'
-                        href='{{ route('dashboard') }}'>
+                        href='{{ route('Dashboard') }}'>
                         <div class="text-white text-center  me-2 d-flex align-items-center justify-content-center">
                             <i class="bi bi-ui-checks-grid"></i>
                         </div>
@@ -51,7 +55,7 @@
                 <li class="nav-item">
 
                     <a class='{{ sprintf('nav-link text-white %s', Request::is('dashboard/posts') ? 'active bg-gradient-primary' : '') }}'
-                        href='{{ route('posts') }}'>
+                        href='{{ route('Dashboard.Posts') }}'>
                         <div class="text-white text-center  me-2 d-flex align-items-center justify-content-center">
                             <i class="bi bi-stickies-fill"></i>
                         </div>
@@ -60,7 +64,7 @@
                 </li>
                 <li class="nav-item">
                     <a class='{{ sprintf('nav-link text-white %s', Request::is('dashboard/categories') ? 'active bg-gradient-primary' : '') }}'
-                        href='{{ route('categories') }}'>
+                        href='{{ route('Dashboard.Categories') }}'>
                         <div class="text-white text-center  me-2 d-flex align-items-center justify-content-center">
                             <i class="bi bi-bookmarks-fill"></i>
                         </div>
@@ -69,7 +73,7 @@
                 </li>
                 <li class="nav-item">
                     <a class='{{ sprintf('nav-link text-white %s', Request::is('dashboard/users') ? 'active bg-gradient-primary' : '') }}'
-                        href='{{ route('users') }}'>
+                        href='{{ route('Dashboard.Users') }}'>
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="bi bi-people-fill"></i>
                         </div>
@@ -88,7 +92,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark"
-                                href="{{ route('dashboard') }}">Dashboard</a>
+                                href="{{ route('Dashboard') }}">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
                             {{ ucfirst(request()->route()->getName()) }}</li>
@@ -96,12 +100,7 @@
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <form>
-                            <button class="btn m-0 bg-gradient-primary">LOG OUT</button>
-                        </form>
-                        <form >
-                            <button class="btn m-0 bg-gradient-secondary ms-2">Profile</button>
-                        </form>
+                        &nbsp;
                     </div>
                 </div>
             </div>
@@ -111,6 +110,7 @@
             <div class="row min-vh-80 h-100">
                 <div class="col-12">
                     <!-- content -->
+                    <x-alert />
 
                     @yield('content')
 
@@ -166,11 +166,14 @@
                 </div>
                 <div class="d-flex">
                     <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark"
-                        onclick="sidebarType(this)">Dark</button>
+                        onclick="sidebarType(this)">Dark
+                    </button>
                     <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent"
-                        onclick="sidebarType(this)">Transparent</button>
+                        onclick="sidebarType(this)">Transparent
+                    </button>
                     <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white"
-                        onclick="sidebarType(this)">White</button>
+                        onclick="sidebarType(this)">White
+                    </button>
                 </div>
                 <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
                 <!-- Navbar Fixed -->
@@ -212,6 +215,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src={{ asset('assets/dashboard/js/material-dashboard.min.js?v=3.0.0') }}></script>
+
 
     @yield('scripts')
 
